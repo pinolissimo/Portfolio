@@ -35,7 +35,7 @@ jobs:
             mv "$output.tmp" "$output"
           }
           build_one IT 12 db92237096c502fa7291d10c4e6fbb3e26bf39ffddcb5ea7d3f735f8cce1830f documents/cv/Giuseppe_Allocca_CV_IT.pdf
-          build_one ES 1 42ef310e73fbc747570571f519d858fe701dc3fe3d1935c2da736d8e259ac560 documents/cv/Giuseppe_Allocca_CV_ES.pdf
+          build_one ES 13 42ef310e73fbc747570571f519d858fe701dc3fe3d1935c2da736d8e259ac560 documents/cv/Giuseppe_Allocca_CV_ES.pdf
           build_one EN 12 8bef1c5d81d0ab974e23544e9f2040920da7e367a33535c9eddc36de46434fed documents/cv/Giuseppe_Allocca_CV_EN.pdf
           git add documents/cv/*.pdf 2>/dev/null || true
           if git diff --cached --quiet; then
