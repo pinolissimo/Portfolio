@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-02T10:55:00Z",
+  "repository": "pinolissimo/Portfolio",
+  "branch": "main",
+  "policy": "PUBLIC_LINK_ONLY_FOR_AUTOMATED_APPLICATIONS",
+  "documents": {
+    "cv_es": {
+      "language": "es",
+      "filename": "Giuseppe_Allocca_CV_Generico_ES.pdf",
+      "path": "documents/Giuseppe_Allocca_CV_Generico_ES.pdf",
+      "html_url": "https://github.com/pinolissimo/Portfolio/blob/main/documents/Giuseppe_Allocca_CV_Generico_ES.pdf",
+      "raw_url": "https://raw.githubusercontent.com/pinolissimo/Portfolio/main/documents/Giuseppe_Allocca_CV_Generico_ES.pdf",
+      "size_bytes": 137287,
+      "approved_master_sha256": "42ef310e73fbc747570571f519d858fe701dc3fe3d1935c2da736d8e259ac560",
+      "github_blob_sha": "a5f6cd81ec541b507b7a35d2e083e58cd21948ff",
+      "status": "PUBLIC_AVAILABLE"
+    },
+    "cv_it": {
+      "language": "it",
+      "filename": "Giuseppe_Allocca_CV_Generico_IT.pdf",
+      "path": "documents/Giuseppe_Allocca_CV_Generico_IT.pdf",
+      "html_url": "https://github.com/pinolissimo/Portfolio/blob/main/documents/Giuseppe_Allocca_CV_Generico_IT.pdf",
+      "raw_url": "https://raw.githubusercontent.com/pinolissimo/Portfolio/main/documents/Giuseppe_Allocca_CV_Generico_IT.pdf",
+      "size_bytes": 133498,
+      "approved_master_sha256": "db92237096c502fa7291d10c4e6fbb3e26bf39ffddcb5ea7d3f735f8cce1830f",
+      "github_blob_sha": "b6992c9c05cc5fb8dfdae075c2abbecc608eaecd",
+      "status": "PUBLIC_AVAILABLE"
+    },
+    "cv_en": {
+      "language": "en",
+      "filename": "Giuseppe_Allocca_Master_CV_EN.pdf",
+      "path": "documents/Giuseppe_Allocca_Master_CV_EN.pdf",
+      "html_url": "https://github.com/pinolissimo/Portfolio/blob/main/documents/Giuseppe_Allocca_Master_CV_EN.pdf",
+      "raw_url": "https://raw.githubusercontent.com/pinolissimo/Portfolio/main/documents/Giuseppe_Allocca_Master_CV_EN.pdf",
+      "size_bytes": 134861,
+      "approved_master_sha256": "8bef1c5d81d0ab974e23544e9f2040920da7e367a33535c9eddc36de46434fed",
+      "github_blob_sha": "81f23ba038b5e5e33a6ce2cdb1b458775d7438f5",
+      "status": "PUBLIC_AVAILABLE"
+    }
+  },
+  "credentials": []
+}
