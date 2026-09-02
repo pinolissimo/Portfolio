@@ -1,0 +1,48 @@
+name: Build approved public CV PDFs
+
+on:
+  push:
+    paths:
+      - 'documents/cv/base64/**'
+      - '.github/workflows/build-public-cvs.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstruct exact approved PDFs when all parts exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p documents/cv
+          build_one() {
+            lang="$1" expected_parts="$2" expected_sha="$3" output="$4"
+            mapfile -t parts < <(find "documents/cv/base64/$lang" -maxdepth 1 -type f -name '*.b64' 2>/dev/null | sort)
+            if [ "${#parts[@]}" -ne "$expected_parts" ]; then
+              echo "$lang: ${#parts[@]}/$expected_parts parts; waiting."
+              return 0
+            fi
+            cat "${parts[@]}" | tr -d '\r\n ' | base64 -d > "$output.tmp"
+            actual="$(sha256sum "$output.tmp" | awk '{print $1}')"
+            if [ "$actual" != "$expected_sha" ]; then
+              echo "SHA256 mismatch for $lang: $actual" >&2
+              exit 1
+            fi
+            mv "$output.tmp" "$output"
+          }
+          build_one IT 12 db92237096c502fa7291d10c4e6fbb3e26bf39ffddcb5ea7d3f735f8cce1830f documents/cv/Giuseppe_Allocca_CV_IT.pdf
+          build_one ES 13 42ef310e73fbc747570571f519d858fe701dc3fe3d1935c2da736d8e259ac560 documents/cv/Giuseppe_Allocca_CV_ES.pdf
+          build_one EN 12 8bef1c5d81d0ab974e23544e9f2040920da7e367a33535c9eddc36de46434fed documents/cv/Giuseppe_Allocca_CV_EN.pdf
+          git add documents/cv/*.pdf 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo 'No completed PDF changes yet.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish verified approved CV PDFs'
+          git push
